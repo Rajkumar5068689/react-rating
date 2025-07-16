@@ -16,7 +16,7 @@ export default function RatingDemo() {
                 max={10}
                 name={"priority"}
                 value={formData?.priority}
-                onChange={handleInputChange}
+                handleInputChange={handleInputChange}
             />
         </>
     );
