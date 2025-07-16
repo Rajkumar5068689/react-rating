@@ -1,5 +1,5 @@
 import React from "react";
-import RatingDemo from "./Components/Pages/RatingDemo";
+import RatingDemo from "./Components/RatingDemo";
 
 
 function App() {
