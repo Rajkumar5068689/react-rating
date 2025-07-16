@@ -1,7 +1,8 @@
 {
-  "name": "rating-demo",
+  "name": "react-number-rating",
   "version": "0.1.0",
-  "private": true,
+  "description": "Lightweight and customizable rating component for React apps. Supports numeric and color-coded scales from 1 to 10.",
+  "main": "dist/index.js",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -14,10 +15,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build": "babel src --out-dir dist"
   },
+  "author": "Rajkumar",
+	"license": "ISC",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -35,5 +38,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.0",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1"
+  },
+   "keywords": [
+    "react-component",
+    "react",
+    "react-rating",
+    "rating",
+    "numeric-react rating"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rajkumar5068689/react-rating"
   }
 }

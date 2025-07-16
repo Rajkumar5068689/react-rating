@@ -2,7 +2,7 @@
 
 A flexible, colorful, and customizable **React numeric rating component**. Ideal for rating **task priority**, **level difficulty**, or anything that needs a numbered scale from **1 to 100** — with vibrant color transitions from 🔴 Red (High Priority) to 🟢 Green (Low Priority).
 
-![Component Preview](./public/sc1.png)
+![Component Preview](https://raw.githubusercontent.com/Rajkumar5068689/react-rating/master/public/sc1.png)
 
 ---
 
@@ -21,14 +21,14 @@ A flexible, colorful, and customizable **React numeric rating component**. Ideal
 ## 📦 Installation
 
 ```bash
-npm install @rk/react-rating
+npm install react-number-rating
 ```
 
 🧪 Basic Usage
 
 ```jsx static
 import React, { useState } from "react";
-import PriorityRating from "@rk/react-rating";
+import PriorityRating from "react-number-rating";
 
 export default function App() {
   const [priority, setPriority] = useState(5);
@@ -94,7 +94,19 @@ export default function App() {
 
 ```
 
+✅ Conclusion
+
+
+priority-numeric-rating is a simple yet powerful numeric rating component tailored for task priority, difficulty scaling, or feedback systems. With built-in support for color gradients, full customization, and high scalability (1–100+ values), it helps developers quickly add a clean and user-friendly experience to their React apps.
+
+Whether you're building a project manager, feedback form, quiz app, or gamified tool, this component lets users visually rank items with ease.
+
+🔧 Lightweight. 🎨 Beautiful. ⚙️ Flexible.
+
+
+
 👨‍💻 Author
+
 Rajkumar — Software Engineer- Full Stack Developer
 
 [🔗 GitHub ](https://github.com/Rajkumar5068689)
