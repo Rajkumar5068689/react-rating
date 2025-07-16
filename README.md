@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# 🔢 Priority Numeric Rating
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A flexible, colorful, and customizable **React numeric rating component**. Ideal for rating **task priority**, **level difficulty**, or anything that needs a numbered scale from **1 to 100** — with vibrant color transitions from 🔴 Red (High Priority) to 🟢 Green (Low Priority).
 
-## Available Scripts
+![Component Preview](./public/sc1.png)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🔢 Numeric rating from 1 to 100+
+- 🎨 Automatic red → green color gradient
+- 🌈 Custom background colors per level
+- 🎯 Optional text color override
+- 📱 Mobile-friendly with optional scrolling
+- 🧩 Customizable styling for buttons and container
+- 🛑 Read-only mode for view-only usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📦 Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install @rk/react-rating
+```
 
-### `npm run build`
+🧪 Basic Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx static
+import React, { useState } from "react";
+import PriorityRating from "@rk/react-rating";
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default function App() {
+  const [priority, setPriority] = useState(5);
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  return (
+    <PriorityRating
+      max={10}
+      value={priority}
+      name="priority"
+      onChange={(val) => setPriority(val)}
+    />
+  );
+}
 
-### `npm run eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+🎛️ Props
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Prop           | Type       | Default    | Description                                |
+| -------------- | ---------- | ---------- | ------------------------------------------ |
+| `max`          | `number`   | `10`       | Total rating steps (up to 200)             |
+| `value`        | `number`   | `0`        | Selected rating value                      |
+| `name`         | `string`   | `"rating"` | Field name identifier                      |
+| `onChange`     | `function` | `-`        | Callback `(value, name)` on change         |
+| `readonly`     | `boolean`  | `false`    | Disables button clicks                     |
+| `colors`       | `array`    | `[]`       | Override background colors                 |
+| `textColor`    | `string`   | `"#fff"`   | Text color for selected buttons            |
+| `buttonStyle`  | `object`   | `{}`       | Custom CSS for each button                 |
+| `wrapperStyle` | `object`   | `{}`       | Custom CSS for wrapper container           |
+| `scrollable`   | `boolean`  | `true`     | Enables horizontal scroll for large scales |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🎨 Examples
 
-## Learn More
+1. 🔧 Custom Styles + Colors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```jsx static
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<PriorityRating
+  max={15}
+  value={priority}
+  name="taskPriority"
+  onChange={(val) => setPriority(val)}
+  colors={["#ff0000", "#ff6600", "#ffcc00", "#ccff33", "#66ff66"]}
+  textColor="#000"
+  buttonStyle={{ borderRadius: "8px", fontSize: "14px" }}
+  wrapperStyle={{ justifyContent: "flex-start" }}
+/>
 
-### Code Splitting
+```
+2. 📱 Scrollable UI (50+ Buttons)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```jsx static
 
-### Analyzing the Bundle Size
+<PriorityRating max={75} value={32} scrollable={true} />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+3. 👀 Read-only Mode
 
-### Making a Progressive Web App
+```jsx static
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<PriorityRating value={8} readonly={true} />
 
-### Advanced Configuration
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+👨‍💻 Author
+Rajkumar — Software Engineer- Full Stack Developer
 
-### Deployment
+[🔗 GitHub ](https://github.com/Rajkumar5068689)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[🌐 Portfolio](https://raj-developer.netlify.app/)

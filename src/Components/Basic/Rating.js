@@ -1,61 +1,82 @@
 import React, { useEffect, useState } from "react";
 
-const CustomRating = ({ max, value, handleInputChange, name, readonly }) => {
-  const [selectedValue, setSelectedValue] = useState(null);
+/**
+ * CustomRating - Number-based rating component for priority or task scoring
+ *
+ * Props:
+ * - max: number (default 10)
+ * - value: number (selected value)
+ * - onChange: function (callback with (value, name))
+ * - name: string (input name)
+ * - readonly: boolean (default false)
+ * - colors: array of background colors per index
+ * - textColor: string (default "#fff")
+ * - buttonStyle: object (custom button style)
+ * - wrapperStyle: object (custom wrapper style)
+ * - scrollable: boolean (default true)
+ */
+const CustomRating = ({
+  max = 10,
+  value = 0,
+  name = "rating",
+  onChange,
+  readonly = false,
+  colors = [],
+  textColor = "#fff",
+  buttonStyle = {},
+  wrapperStyle = {},
+  scrollable = true,
+}) => {
+  const MAX_SAFE_LIMIT = 200;
+  const finalMax = Math.min(Number(max) || 10, MAX_SAFE_LIMIT);
+  const [selectedValue, setSelectedValue] = useState(Number(value));
 
   useEffect(() => {
-    setSelectedValue(+value);
+    setSelectedValue(Number(value));
   }, [value]);
 
-  const getColorForRating = (rating) => {
-    if (selectedValue >= 1 && rating <= selectedValue) {
-      switch (rating) {
-        case 1: return '#ff4d4d';
-        case 2: return '#ff6666';
-        case 3: return '#ff8080';
-        case 4: return '#ff9999';
-        case 5: return '#ffb366';
-        case 6: return '#ffd633';
-        case 7: return '#ffff66';
-        case 8: return '#ccff66';
-        case 9: return '#80ff80';
-        default: return '#33cc33';
-      }
-    } else {
-      return '#f0f0f0';
+  // Generates a color if not defined (for indices beyond colors.length)
+ const generateColor = (i) => {
+  const hue = Math.floor((i / finalMax) * 120); // Red (0) → Green (120)
+  return `hsl(${hue}, 80%, 60%)`;
+};
+
+  const getBackgroundColor = (index) =>
+    colors[index] || generateColor(index);
+
+  const handleClick = (rating) => {
+    if (!readonly) {
+      setSelectedValue(rating);
+      onChange?.(rating, name);
     }
   };
 
+  const wrapperBase = scrollable ? styles.scrollWrapper : styles.wrapWrapper;
+
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', padding: '10px' }}>
-      {Array.from({ length: max }).map((_, index) => {
+    <div style={{ ...wrapperBase, ...wrapperStyle }}>
+      {Array.from({ length: finalMax }).map((_, index) => {
         const ratingValue = index + 1;
         const isSelected = selectedValue >= ratingValue;
 
         return (
           <button
             key={ratingValue}
-            name={name}
-            value={selectedValue}
-            onClick={() => {
-              if (!readonly) {
-                setSelectedValue(ratingValue);
-                handleInputChange({ target: { name, value: ratingValue } });
-              }
-            }}
+            onClick={() => handleClick(ratingValue)}
+            disabled={readonly}
             style={{
-              backgroundColor: isSelected ? getColorForRating(ratingValue) : '#f0f0f0',
-              border: '1px solid #ccc',
-              borderRadius: '6px',
-              width: '40px',
-              height: '40px',
-              fontSize: '16px',
-              fontWeight: 'bold',
-              color: isSelected ? '#fff' : '#555',
-              cursor: readonly ? 'default' : 'pointer',
-              transition: 'all 0.2s ease-in-out',
-              boxShadow: isSelected ? '0 2px 6px rgba(0,0,0,0.15)' : 'none'
+              ...styles.button,
+              ...buttonStyle,
+              backgroundColor: isSelected
+                ? getBackgroundColor(index)
+                : "#f0f0f0",
+              color: isSelected ? textColor : "#333",
+              transform: isSelected ? "scale(1.05)" : "scale(1)",
+              boxShadow: isSelected
+                ? "0 4px 8px rgba(0,0,0,0.1)"
+                : "none",
             }}
+            aria-label={`Priority ${ratingValue}`}
           >
             {ratingValue}
           </button>
@@ -63,6 +84,33 @@ const CustomRating = ({ max, value, handleInputChange, name, readonly }) => {
       })}
     </div>
   );
+};
+
+const styles = {
+  scrollWrapper: {
+    display: "flex",
+    overflowX: "auto",
+    gap: "10px",
+    padding: "12px",
+    scrollbarWidth: "thin",
+  },
+  wrapWrapper: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "10px",
+    padding: "12px",
+    justifyContent: "center",
+  },
+  button: {
+    minWidth: "42px",
+    height: "42px",
+    borderRadius: "50%",
+    border: "none",
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    transition: "all 0.2s ease-in-out",
+  },
 };
 
 export default CustomRating;
