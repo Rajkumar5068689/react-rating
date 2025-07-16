@@ -27,6 +27,6 @@ function RatingDemo() {
     max: 10,
     name: "priority",
     value: formData === null || formData === void 0 ? void 0 : formData.priority,
-    onChange: handleInputChange
+    handleInputChange: handleInputChange
   }));
 }
