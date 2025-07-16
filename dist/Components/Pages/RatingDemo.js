@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.default = RatingDemo;
 var _react = _interopRequireWildcard(require("react"));
 var _Rating = _interopRequireDefault(require("../Basic/Rating"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
@@ -13,7 +13,7 @@ function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t =
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-const RatingDemo = () => {
+function RatingDemo() {
   const [formData, setFormData] = (0, _react.useState)({
     priority: '10'
   });
@@ -27,7 +27,6 @@ const RatingDemo = () => {
     max: 10,
     name: "priority",
     value: formData === null || formData === void 0 ? void 0 : formData.priority,
-    handleInputChange: handleInputChange
+    onChange: handleInputChange
   }));
-};
-var _default = exports.default = RatingDemo;
+}

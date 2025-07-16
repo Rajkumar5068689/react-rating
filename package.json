@@ -2,7 +2,8 @@
   "name": "react-number-rating",
   "version": "0.1.3",
   "description": "Lightweight and customizable rating component for React apps. Supports numeric and color-coded scales from 1 to 10.",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
+  "module": "dist/main.js",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -17,7 +18,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "babel src --out-dir dist"
+    "build": "babel src --out-dir dist --copy-files"
   },
   "author": "Rajkumar",
   "license": "ISC",

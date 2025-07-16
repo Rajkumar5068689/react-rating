@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CustomRating from '../Basic/Rating';
-const RatingDemo = () => {
+export default function RatingDemo() {
     const [formData, setFormData] = useState({ priority: '10' });
 
     const handleInputChange = (event, value) => {
@@ -16,9 +16,8 @@ const RatingDemo = () => {
                 max={10}
                 name={"priority"}
                 value={formData?.priority}
-                handleInputChange={handleInputChange}
+                onChange={handleInputChange}
             />
         </>
     );
-};
-export default RatingDemo;
+}
