@@ -2,7 +2,17 @@
 
 A flexible, colorful, and customizable **React numeric rating component**. Ideal for rating **task priority**, **level difficulty**, or anything that needs a numbered scale from **1 to 100** — with vibrant color transitions from 🔴 Red (High Priority) to 🟢 Green (Low Priority).
 
+## 🚀 Live Demo
+
+
+
+Try it now on [CodeSandbox](https://codesandbox.io/p/sandbox/92y4kp)
+
+
+
 ![Component Preview](https://raw.githubusercontent.com/Rajkumar5068689/react-rating/master/public/sc1.png)
+
+
 
 ---
 
