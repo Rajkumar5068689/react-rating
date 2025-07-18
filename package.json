@@ -51,11 +51,16 @@
     "@babel/preset-react": "^7.27.1"
   },
   "keywords": [
-    "react-component",
     "react",
+    "react-component",
     "react-rating",
-    "rating",
-    "numeric-react rating"
+    "number rating",
+    "custom rating",
+    "react-number-rating",
+    "1-10 rating",
+    "numeric rating",
+    "color rating",
+    "rating UI"
   ],
   "repository": {
     "type": "git",
