@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CustomRating from '../Basic/Rating';
+import CustomRating from '../main';
 export default function RatingDemo() {
     const [formData, setFormData] = useState({ priority: '10' });
 
