@@ -1,2 +1,2 @@
-import CustomRating from './Components/CustomRating';
+import CustomRating from './CustomRating';
 export default CustomRating;
